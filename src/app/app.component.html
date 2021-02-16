@@ -13,60 +13,152 @@
             <tbody>
                 <tr>
                     <td>{{capitan}} </td>
-                    <td> variable | uppercase </td>
+                    <td> variable:string | uppercase </td>
                     <td>{{capitan | uppercase}} </td>
                 </tr>
                 <tr>
                     <td>{{tony}} </td>
-                    <td> variable | lowercase </td>
+                    <td> variable:string | lowercase </td>
                     <td>{{ tony | lowercase}} </td>
                 </tr>
                 <tr>
                     <td>{{fernando}} </td>
-                    <td> variable | slice:3 </td>
+                    <td> variable:string | slice:3 </td>
                     <td>{{ fernando | slice:3}} </td>
                 </tr>
                 <tr>
                     <td>{{fernando}} </td>
-                    <td> variable | slice:0:3 </td>
+                    <td> variable:string | slice:0:3 </td>
                     <td>{{ fernando | slice:0:3}} </td>
                 </tr>
                 <tr>
                     <td>{{arreglo}} </td>
-                    <td> variable | slice:1:5 </td>
+                    <td> variable:number | slice:1:5 </td>
                     <td>{{ arreglo | slice:1:5}} </td>
                 </tr>
                 <tr>
                     <td>{{PI}} </td>
-                    <td> variable | number </td>
+                    <td> variable:number | number </td>
                     <td>{{ PI | number}} </td>
                 </tr>
 
                 <tr>
                     <td>{{PI}} </td>
-                    <td> variable | number:'1.0-0' </td>
+                    <td> variable:number | number:'1.0-0' </td>
                     <td>{{ PI | number:'1.0-0'}} </td>
                 </tr>
 
                 <!-- 3 Posiciones enteras, si no hay, lo rellena de ceros -->
                 <tr>
                     <td>{{PI}} </td>
-                    <td> variable | number:'3.0-0' </td>
+                    <td> variable:number | number:'3.0-0' </td>
                     <td>{{ PI | number:'3.0-0'}} </td>
                 </tr>
                 <!-- Todos los enteros y solo dos decimales -->
                 <tr>
                     <td>{{PI}} </td>
-                    <td> variable | number:'0.0-2' </td>
+                    <td> variable:number | number:'0.0-2' </td>
                     <td>{{ PI | number:'0.0-2'}} </td>
                 </tr>
+                <tr>
+                    <td>{{porcentaje}} </td>
+                    <td> variable:number | percent </td>
+                    <td>{{ porcentaje | percent}} </td>
+                </tr>
 
+                <tr>
+                    <!-- dos posiciones enteras y dos decimales -->
+                    <td>{{porcentaje}} </td>
+                    <td> variable:number | percent </td>
+                    <td>{{ porcentaje | percent:'2.2'}} </td>
+                </tr>
+
+                <tr>
+                    <!-- currencyPipe    '0.0-0' TODOS LOS NUMEROS ENTEROS Y CEROS DECIMALES
+                         'symbol-narrow : quita el simbolo'-->
+                    <td>{{moneda}} </td>
+                    <td> variable:number | currency:'CAD':'symbol-narrow':'0.0-0' </td>
+                    <td>{{ moneda | currency:'CAD':'symbol-narrow':'0.0-0'}} </td>
+                </tr>
+
+                <tr>
+                    <!-- PERSONALIZAR MONEDA-->
+                    <td>{{moneda}} </td>
+                    <td> variable:number | currency:'S/. ' </td>
+                    <td>{{ moneda | currency:'S/. '}} </td>
+                </tr>
+                <tr>
+                    <!-- AsyncPipe-->
+                    <td>{{promesa}} </td>
+                    <td> variable:Promise | async </td>
+                    <td>{{ promesa | async }} </td>
+                </tr>
+                <tr>
+                    <!-- DatePipe-->
+                    <td>{{fecha}} </td>
+                    <td> variable:Date | date</td>
+                    <td>{{ fecha | date}} </td>
+                </tr>
+                <tr>
+                    <!-- DatePipe-->
+                    <td>{{fecha}} </td>
+                    <td> variable:Date | date:'medium'</td>
+                    <td>{{ fecha | date:'medium'}} </td>
+                </tr>
+
+                <tr>
+                    <!-- DatePipe-->
+                    <td>{{fecha}} </td>
+                    <td> variable:Date | date:'short'</td>
+                    <td>{{ fecha | date:'short'}} </td>
+                </tr>
+                <tr>
+                    <!-- DatePipe-->
+                    <td>{{fecha}} </td>
+                    <td> variable:Date | date:'MMMM - dd'</td>
+                    <td>{{ fecha | date:'MMMM - dd'}} </td>
+                </tr>
+
+                <tr>
+                    <!-- DatePipe-->
+                    <td>{{fecha}} </td>
+                    <td> variable:Date | date:'MMMM - dd':'':'en'</td>
+                    <td>{{ fecha | date:'MMMM - dd':'':'en'}} </td>
+                </tr>
+                <tr>
+                    <!-- DatePipe-->
+                    <td>{{fecha}} </td>
+                    <td>
+                        variable:Date | date:'MMMM - dd':'':'{{idioma}}'
+                        <br>
+                        <button (click)="idioma='es'" class="mr-1 btn btn-primary">Español</button>
+                        <button (click)="idioma='en'" class="mr-1 btn btn-secondary">Inglés</button>
+                        <button (click)="idioma='fr'" class="mr-1 btn btn-success">Francés</button>
+                    </td>
+                    <td>{{ fecha | date:'MMMM - dd':'':idioma}} </td>
+                </tr>
+                <tr>
+                    <!-- Pipe Pernalizado que capitaliza la primera letra de cada Palabra-->
+                    <td>{{diego}} </td>
+                    <td> variable:string | capitalizado </td>
+                    <td>{{ diego | capitalizado}} </td>
+                </tr>
             </tbody>
         </table>
     </div>
 
 </div>
-<h4> Slice</h4>
+<h4> Slice <small>slice:5:20</small></h4>
+<hr>
 <ul>
     <li *ngFor="let item of arreglo | slice:5:20">{{item}}</li>
 </ul>
+<h4>JSON</h4>
+<hr> heroe | json
+<div class="row mb-5">
+    <pre>
+    <div class="col">
+        {{heroe | json}}
+    </div>
+  </pre>
+</div>
