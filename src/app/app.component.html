@@ -140,8 +140,25 @@
                 <tr>
                     <!-- Pipe Pernalizado que capitaliza la primera letra de cada Palabra-->
                     <td>{{diego}} </td>
-                    <td> variable:string | capitalizado </td>
-                    <td>{{ diego | capitalizado}} </td>
+                    <td> variable:string | capitalizado:false </td>
+                    <td>{{ diego | capitalizado:false}} </td>
+                </tr>
+                <tr>
+                    <!-- Pipe Pernalizado que capitaliza la primera letra de cada Palabra-->
+                    <td>{{diego}} </td>
+                    <td> variable:string | capitalizado:true </td>
+                    <td>{{ diego | capitalizado:true}} </td>
+                </tr>
+                <tr>
+                    <!-- Pipe Personalizado de contraseña-->
+                    <td>{{fernando}} </td>
+                    <td> variable:string | contrasena
+                        <br>
+                        <button class="btn btn-primary">
+                            Activar/Desactivar
+                        </button>
+                    </td>
+                    <td>{{ fernando}} </td>
                 </tr>
             </tbody>
         </table>
@@ -161,4 +178,11 @@
         {{heroe | json}}
     </div>
   </pre>
+</div>
+<h3 class="mt-4">Dom Seguro</h3>
+<hr> url | domseguro
+<div class="row mb-5">
+    <div class="col">
+        <iframe width="560" height="315" [src]="videoUrl | domseguro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 </div>
