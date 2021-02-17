@@ -151,14 +151,14 @@
                 </tr>
                 <tr>
                     <!-- Pipe Personalizado de contraseña-->
-                    <td>{{fernando}} </td>
-                    <td> variable:string | contrasena
+                    <td>{{diego}} </td>
+                    <td> variable:string | contrasena:{{activar}}
                         <br>
-                        <button class="btn btn-primary">
+                        <button (click)="activar=!activar" class="btn btn-primary">
                             Activar/Desactivar
                         </button>
                     </td>
-                    <td>{{ fernando}} </td>
+                    <td>{{ diego | contrasena:activar}} </td>
                 </tr>
             </tbody>
         </table>
